@@ -1,4 +1,6 @@
 #type of input A:list
+
+#O(n**2)
 def insertion_sort(A):
     for j in range(1,len(A)):
         key = A[j]

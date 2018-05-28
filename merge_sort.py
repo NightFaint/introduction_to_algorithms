@@ -1,5 +1,5 @@
 # -*-coding:utf-8 -*-
-
+'''
 def merge(A,p,q,r):
 
     n1 = q - p + 1
@@ -39,6 +39,38 @@ def merge_sort(A,p,r):
         print(A[p])
         return A[p]
     return A
+'''
+import math
+from copy import copy
+
+#O(nlgn)
+def merge(A,p,q,r):
+    l1 = copy(A[p:q+1])
+    l1.append(math.inf)
+    l2 = copy(A[q+1:r+1])
+    l2.append(math.inf)
+    i=0
+    j=0
+    for k in range(p,r+1):
+        if l1[i] < l2[j]:
+            A[k] = l1[i]
+            i+=1
+        else:
+            A[k] = l2[j]
+            j+=1
+    return A
+
+def merge_sort(A,start,end):
+    if start < end:
+        q = (start+end)//2
+        merge_sort(A,start,q)
+        merge_sort(A,q+1,end)
+        merge(A,start,q,end)
+    else:
+        print(A[start])
+        return A[start]
+    return A
+
 
 A=[2,3,5,4,8,1,6]
 A=merge_sort(A,0,6)

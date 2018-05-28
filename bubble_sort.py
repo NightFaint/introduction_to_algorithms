@@ -1,3 +1,5 @@
+
+#O(n**2)
 def bubble_sort(A):
     for i in range(len(A)-1):
         for j in range(len(A)-1,i,-1):
